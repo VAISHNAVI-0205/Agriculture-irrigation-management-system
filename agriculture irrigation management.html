@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Irrigation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Agriculture Irrigation System</h1>
+        <p>Enter the area to calculate the required water for irrigation.</p>
+
+        <form method="POST" action="/irrigate">
+            <label for="area">Area (in square meters):</label>
+            <input type="text" id="area" name="area" required>
+            <button type="submit">Calculate Water Needed</button>
+        </form>
+
+        {% if water_needed %}
+            <h2>Water Needed: {{ water_needed }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
